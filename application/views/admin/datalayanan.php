@@ -13,9 +13,9 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered dataTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
+                        <tr style="text-align: center;">
                             <th>No</th>
                             <th>Nama</th>
                             <th>Estimasi Waktu</th>
@@ -26,17 +26,18 @@
                     <tbody class="list">
 
                         <?php $no = 1;
-                        $user = $this->db->query("SELECT * FROM layananld");  
-                        foreach ($user->result_array() as $users) : ?>
-                            <tr>
+                        // $layanan = $this->db->query("SELECT * FROM layananld");  
+                        foreach ($layanan as $layanans) : ?>
+                            <tr style="text-align: center;">
                                 <td><?= $no; ?></td>
-                                <td><?= $users['nama_layanan'] ?></td>
-                                <td><?= $users['estimasi_waktu_layanan'] ?> Hari</td>
-                                <td><?= $users['harga_layanan'] ?></td>
+                                <td><?= $layanans['nama_layanan'] ?></td>
+                                <td><?= $layanans['estimasi_waktu_layanan'] ?> Hari</td>
+                                <td>Rp<?= number_format($layanans['harga_layanan'], 0, ",", ".");  ?></td>
+
                                 <td class="text-center">
-                                    <a href="<?= base_url('index.php/superadmin/editlayanan/' . $users['id_layanan']) ?>" type="button" class="fas fa-edit" style="color:limegreen">
+                                    <a href="<?= base_url('index.php/superadmin/editlayanan/' . $layanans['id_layanan']) ?>" type="button" class="fas fa-edit" style="color:limegreen">
                                     </a>
-                                    <a href="<?= base_url('index.php/superadmin/deletelayanan/' . $users['id_layanan']) ?>" type="button" class="fas fa-trash" style="color:red" onclick="return confirm('Are you sure to delete this row ?')">
+                                    <a href="<?= base_url('index.php/superadmin/deletelayanan/' . $layanans['id_layanan']) ?>" type="button" class="fas fa-trash" style="color:red" onclick="return confirm('Are you sure to delete this row ?')">
                                     </a>
                                 </td>
                             </tr>
@@ -47,7 +48,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Data Jenis Laundry     -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -58,13 +59,14 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered dataTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
+                        <tr style="text-align: center;">
                             <th>No</th>
                             <th>Nama</th>
                             <th>Satuan</th>
                             <th>Estimasi Waktu</th>
+                            <th>Keterangan</th>
                             <th>Harga</th>
                             <th>Aksi</th>
                         </tr>
@@ -72,18 +74,19 @@
                     <tbody class="list">
 
                         <?php $no = 1;
-                        $user = $this->db->query("SELECT * FROM jenisld");
-                        foreach ($user->result_array() as $users) : ?>
-                            <tr>
+                        // $jenis = $this->db->query("SELECT * FROM jenisld");
+                        foreach ($jenis as $jeniss) : ?>
+                            <tr style="text-align: center;">
                                 <td><?= $no; ?></td>
-                                <td><?= $users['nama_jenis'] ?></td>                                
-                                <td><?= $users['satuan_jenis'] ?></td>
-                                <td><?= $users['estimasi_waktu_jenis'] ?> Hari</td>
-                                <td><?= $users['harga_jenis'] ?></td>
+                                <td><?= $jeniss['nama_jenis'] ?></td>
+                                <td><?= $jeniss['satuan_jenis'] ?></td>
+                                <td><?= $jeniss['estimasi_waktu_jenis'] ?> Hari</td>
+                                <td><?= $jeniss['keterangan'] ?></td>
+                                <td>Rp<?= number_format($jeniss['harga_jenis'], 0, ",", ".");  ?></td>
                                 <td class="text-center">
-                                    <a href="<?= base_url('index.php/superadmin/editjenis/' . $users['id_jenis']) ?>" type="button" class="fas fa-edit" style="color:limegreen">
+                                    <a href="<?= base_url('index.php/superadmin/editjenis/' . $jeniss['id_jenis']) ?>" type="button" class="fas fa-edit" style="color:limegreen">
                                     </a>
-                                    <a href="<?= base_url('index.php/superadmin/deletejenis/' . $users['id_jenis']) ?>" type="button" class="fas fa-trash" style="color:red" onclick="return confirm('Are you sure to delete this row ?')">
+                                    <a href="<?= base_url('index.php/superadmin/deletejenis/' . $jeniss['id_jenis']) ?>" type="button" class="fas fa-trash" style="color:red" onclick="return confirm('Are you sure to delete this row ?')">
                                     </a>
                                 </td>
                             </tr>

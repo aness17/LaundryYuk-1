@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h3 class="mb-0">Add User </h3>
+                            <h3 class="mb-0">Tambah Pengguna</h3>
                         </div>
                     </div>
                 </div>
@@ -16,12 +16,15 @@
                             <div class="form-group mb-3">
                                 <label class="form-control-label" for="input-username">Nama</label>
                                 <input type="text" id="input-username" class="form-control" name="nama" placeholder="Name">
+                                <?= form_error('nama', '<small class="form-text text-danger">', '</small>'); ?>
                             </div>
                             <div class="row">
                                 <div class="col-lg">
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-username">Email</label>
                                         <input type="text" id="input-username" class="form-control" name="email" placeholder="Email">
+                                        <?= form_error('email', '<small class="form-text text-danger">', '</small>'); ?>
+
                                     </div>
                                 </div>
                             </div>
@@ -30,6 +33,8 @@
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-username">No. Handphone</label>
                                         <input type="text" id="input-username" class="form-control" name="nohp" placeholder="ex. 08xxxxxxxxx">
+                                        <?= form_error('nohp', '<small class="form-text text-danger">', '</small>'); ?>
+
                                     </div>
                                 </div>
                             </div>
@@ -38,6 +43,8 @@
                                     <div class="form-group">
                                         <label class="form-control-label">Alamat</label>
                                         <textarea rows="2" class="form-control" name="alamat" placeholder="ex. Jl. Kenangan" style="resize: none;"></textarea>
+                                        <?= form_error('alamat', '<small class="form-text text-danger">', '</small>'); ?>
+
                                     </div>
                                 </div>
                             </div>
@@ -46,6 +53,8 @@
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-username">Password</label>
                                         <input type="password" id="input-username" class="form-control" name="passwd" placeholder="Password">
+                                        <?= form_error('passwd', '<small class="form-text text-danger">', '</small>'); ?>
+
                                     </div>
                                 </div>
                             </div>
@@ -61,6 +70,7 @@
                                                 <option value="<?= $roles['id_role'] ?>"><?= $roles['nama_role'] ?></option>
                                             <?php endforeach; ?>
                                         </select>
+                                        <?= form_error('id_role', '<small class="form-text text-danger">', '</small>'); ?>
                                     </div>
                                 </div>
                             </div>

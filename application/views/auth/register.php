@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>Laundry Yuk - Daftar</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('assets') ?>/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,34 +36,34 @@
                             <div class="col">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Buat Akun Baru!</h1>
                                     </div>
                                     <form method="POST" action="<?= base_url('index.php/login/register') ?>">
                                         <div class="form-group">
-                                            <input type="name" class="form-control form-control-user" name="nama" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Your Name....">
+                                            <input type="name" class="form-control form-control-user" name="nama" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nama Lengkap">
                                             <?= form_error('nama', '<small class="form-text text-danger">', '</small>'); ?>
 
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" name="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                            <input type="email" class="form-control form-control-user" name="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Alamat Email">
                                             <?= form_error('email', '<small class="form-text text-danger">', '</small>'); ?>
 
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" name="passwd" id="exampleInputPassword" placeholder="Password">
+                                            <input type="password" class="form-control form-control-user" name="passwd" id="exampleInputPassword" placeholder="Kata Sandi">
                                             <?= form_error('passwd', '<small class="form-text text-danger">', '</small>'); ?>
 
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" name="passwd" id="exampleInputPassword" placeholder="Confirm Password">
+                                            <input type="password" class="form-control form-control-user" name="passwd" id="exampleInputPassword" placeholder="Konfirmasi Kata Sandi">
                                             <?= form_error('passwd', '<small class="form-text text-danger">', '</small>'); ?>
 
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">Register</button>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">Daftar</button>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?= base_url('index.php/auth/login') ?>">Alredy have an account? Login</a>
+                                        <a class="small" href="<?= base_url('index.php/auth/login') ?>">Sudah mempunyai akun? Masuk</a>
                                     </div>
                                 </div>
                             </div>

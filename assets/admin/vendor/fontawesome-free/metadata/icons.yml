@@ -17,7 +17,7 @@ accessible-icon:
     terms:
       - accessibility
       - handicap
-      - person
+      - jenis
       - wheelchair
       - wheelchair-alt
   styles:
@@ -1104,7 +1104,7 @@ baby:
       - infant
       - kid
       - offspring
-      - person
+      - jenis
       - sprout
   styles:
     - solid
@@ -1823,7 +1823,7 @@ blind:
     terms:
       - cane
       - disability
-      - person
+      - jenis
       - sight
   styles:
     - solid
@@ -1838,7 +1838,7 @@ blog:
       - journal
       - log
       - online
-      - personal
+      - jenisal
       - post
       - web 2.0
       - wordpress
@@ -6947,7 +6947,7 @@ female:
   search:
     terms:
       - human
-      - person
+      - jenis
       - profile
       - user
       - woman
@@ -10060,7 +10060,7 @@ hiking:
       - fall
       - fitness
       - outdoors
-      - person
+      - jenis
       - seasonal
       - walking
   styles:
@@ -12072,7 +12072,7 @@ male:
     terms:
       - human
       - man
-      - person
+      - jenis
       - profile
       - user
   styles:
@@ -14004,7 +14004,7 @@ people-arrows:
   search:
     terms:
       - covid-19
-      - personal space
+      - jenisal space
       - social distance
       - space
       - spread
@@ -14100,17 +14100,17 @@ periscope:
     - brands
   unicode: f3da
   voted: false
-person-booth:
+jenis-booth:
   changes:
     - 5.5.0
-  label: Person Entering Booth
+  label: jenis Entering Booth
   search:
     terms:
       - changing
       - changing room
       - election
       - human
-      - person
+      - jenis
       - vote
       - voting
   styles:
@@ -15816,7 +15816,7 @@ running:
       - exercise
       - health
       - jog
-      - person
+      - jenis
       - run
       - sport
       - sprint
@@ -16684,7 +16684,7 @@ skating:
       - figure skating
       - fitness
       - ice
-      - person
+      - jenis
       - winter
   styles:
     - solid
@@ -16715,7 +16715,7 @@ skiing:
       - fitness
       - olympics
       - outdoors
-      - person
+      - jenis
       - seasonal
       - slalom
   styles:
@@ -16731,7 +16731,7 @@ skiing-nordic:
       - cross country
       - fitness
       - outdoors
-      - person
+      - jenis
       - seasonal
   styles:
     - solid
@@ -17053,7 +17053,7 @@ snowboarding:
       - fitness
       - olympics
       - outdoors
-      - person
+      - jenis
   styles:
     - solid
   unicode: f7ce
@@ -18334,7 +18334,7 @@ swimmer:
       - head
       - man
       - olympics
-      - person
+      - jenis
       - pool
       - water
   styles:
@@ -19928,7 +19928,7 @@ universal-access:
     terms:
       - accessibility
       - hearing
-      - person
+      - jenis
       - seeing
       - visual impairment
   styles:
@@ -20074,7 +20074,7 @@ user:
       - head
       - human
       - man
-      - person
+      - jenis
       - profile
   styles:
     - solid
@@ -20094,7 +20094,7 @@ user-alt:
       - head
       - human
       - man
-      - person
+      - jenis
       - profile
   styles:
     - solid
@@ -20111,7 +20111,7 @@ user-alt-slash:
       - head
       - human
       - man
-      - person
+      - jenis
       - profile
   styles:
     - solid
@@ -20141,7 +20141,7 @@ user-check:
     terms:
       - accept
       - check
-      - person
+      - jenis
       - verified
   styles:
     - solid
@@ -20163,7 +20163,7 @@ user-circle:
       - head
       - human
       - man
-      - person
+      - jenis
       - profile
   styles:
     - solid
@@ -20177,7 +20177,7 @@ user-clock:
   search:
     terms:
       - alert
-      - person
+      - jenis
       - remind
       - time
   styles:
@@ -20192,7 +20192,7 @@ user-cog:
     terms:
       - admin
       - cog
-      - person
+      - jenis
       - settings
   styles:
     - solid
@@ -20207,7 +20207,7 @@ user-edit:
       - edit
       - pen
       - pencil
-      - person
+      - jenis
       - update
       - write
   styles:
@@ -20222,7 +20222,7 @@ user-friends:
     terms:
       - group
       - people
-      - person
+      - jenis
       - team
       - users
   styles:
@@ -20240,7 +20240,7 @@ user-graduate:
       - commencement
       - gown
       - graduation
-      - person
+      - jenis
       - student
   styles:
     - solid
@@ -20256,7 +20256,7 @@ user-injured:
       - injury
       - ouch
       - patient
-      - person
+      - jenis
       - sling
   styles:
     - solid
@@ -20271,7 +20271,7 @@ user-lock:
     terms:
       - admin
       - lock
-      - person
+      - jenis
       - private
       - unlock
   styles:
@@ -20376,7 +20376,7 @@ user-secret:
       - coat
       - hat
       - incognito
-      - person
+      - jenis
       - privacy
       - spy
       - whisper
@@ -20391,7 +20391,7 @@ user-shield:
   search:
     terms:
       - admin
-      - person
+      - jenis
       - private
       - protect
       - safe
@@ -20421,7 +20421,7 @@ user-tag:
       - avatar
       - discount
       - label
-      - person
+      - jenis
       - role
       - special
   styles:
@@ -20473,7 +20473,7 @@ users:
       - friends
       - group
       - people
-      - persons
+      - jeniss
       - profiles
       - team
   styles:
@@ -20489,7 +20489,7 @@ users-cog:
       - admin
       - cog
       - group
-      - person
+      - jenis
       - settings
       - team
   styles:
@@ -20507,7 +20507,7 @@ users-slash:
       - friends
       - group
       - people
-      - persons
+      - jeniss
       - profiles
       - separate
       - team
@@ -21059,7 +21059,7 @@ walking:
       - exercise
       - health
       - pedometer
-      - person
+      - jenis
       - steps
   styles:
     - solid
@@ -21233,7 +21233,7 @@ wheelchair:
     terms:
       - accessible
       - handicap
-      - person
+      - jenis
   styles:
     - solid
   unicode: f193

@@ -10,40 +10,37 @@ class Login extends CI_Controller
     }
     public function index()
     {
-        // $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-        // $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
-        $email_cs =$_POST['email'];
-        $passwd_cs = $_POST['password'];
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('password', 'Password', 'required|min_length[4]');
 
-        $user= $this->db->get_where('user', ['email_cs' => $email_cs])->row_array();
-        
-        if ($user['id_cs']>0) {
-            
-            if ($user) {
-                if ($passwd_cs==$user['password']) {
-                    if ($user['fk_role'] == '1') {
-                        $this->session->set_userdata('id', $user['id_cs']);
-                        redirect('index.php/auth/dashboard');
-                    } else if ($user['fk_role'] == '2') {
-                        $this->session->set_userdata('id', $user['id_cs']);
-                        redirect('index.php/outlet');
-                    }else if ($user['fk_role'] == '3') {
-                        $this->session->set_userdata('id', $user['id_cs']);
-                        redirect('index.php/superadmin');
-                    }else{
-                        $this->session->set_userdata('id', $user['id_cs']);
-                        redirect('index.php/agen');
-                    }
+        $email_cs = $this->input->post('email');
+        $passwd_cs = $this->input->post('passwd');
+
+        $user = $this->db->get_where('user', ['email_cs' => $email_cs])->row_array();
+
+
+        if (isset($user)) {
+
+            if (password_verify($passwd_cs, $user['passwd_cs'])) {
+                // var_dump($user);
+                // die;
+                $this->session->set_userdata('id', $user['id_cs']);
+                $this->session->set_userdata('nama', $user['nama_cs']);
+                $this->session->set_userdata('id_role', $user['fk_role']);
+                if ($user['fk_role'] == '1') {
+                    echo "<script>location.href='" . base_url('index.php/auth/dashboard') . "';alert('Anda Berhasil Masuk');</script>";
+                } else if ($user['fk_role'] == '2') {
+                    echo "<script>location.href='" . base_url('index.php/outlet') . "';alert('Anda Berhasil Masuk Sebagai Outlet');</script>";
+                } else if ($user['fk_role'] == '3') {
+                    echo "<script>location.href='" . base_url('index.php/superadmin') . "';alert('Anda Berhasil Masuk Sebagai Admin');</script>";
                 } else {
-                    $this->session->set_flashdata('message_login', $this->flasher('danger', 'Wrong Password'));
-                    redirect('index.php/login');
+                    echo "<script>location.href='" . base_url('index.php/agen') . "';alert('Anda Berhasil Masuk Sebagai Agen');</script>";
                 }
             } else {
-                $this->session->set_flashdata('message_login', $this->flasher('danger', 'User not registered'));
-                redirect('index.php/login');
+                echo "<script>location.href='" . base_url('index.php/auth/login') . "';alert('Password Salah');</script>";
             }
         } else {
-            $this->load->view('index.php/login');
+            redirect('index.php/auth/login');
         }
     }
 
@@ -54,37 +51,55 @@ class Login extends CI_Controller
         $this->form_validation->set_rules('passwd', 'Password', 'required|min_length[6]');
 
         if ($this->form_validation->run()) {
-        $email = $this->input->post('email');
-        $pos = strpos($email, "@gmail.com") ? "ada" : "tidak ada";
-        if ($pos == "tidak ada") {
-            echo "<script>alert('harus gugel bund');history.go(-1);</script>";
-            $this->session->set_flashdata('message_login', $this->flasher('danger', 'HARUS AKUN GUGEL'));
-        } else {
-            $db = [
-                'nama_cs' => $this->input->post('nama'),
-                'email_cs' => $this->input->post('email'),
-                'passwd_cs' => password_hash($this->input->post('passwd'), PASSWORD_DEFAULT),
-                'fk_role'=>'1',
-                'catatan'=> 'input sendiri'
-            ];
-
-            if ($this->User_model->createUser($db) > 0) {
-                $this->session->set_flashdata('message_login', $this->flasher('success', 'User has been registered!'));
+            $email = $this->input->post('email');
+            $pos = strpos($email, "@gmail.com") ? "ada" : "tidak ada";
+            if ($pos == "tidak ada") {
+                echo "<script>alert('harus gugel bund');history.go(-1);</script>";
+                $this->session->set_flashdata('message_login', $this->flasher('danger', 'HARUS AKUN GUGEL'));
             } else {
-                $this->session->set_flashdata('message_login', $this->flasher('danger', 'Failed to create User'));
+                $db = [
+                    'nama_cs' => $this->input->post('nama'),
+                    'email_cs' => $this->input->post('email'),
+                    'passwd_cs' => password_hash($this->input->post('passwd'), PASSWORD_DEFAULT),
+                    'fk_role' => '1',
+                    'catatan' => 'input sendiri'
+                ];
+
+                if ($this->User_model->createUser($db) > 0) {
+                    $this->session->set_flashdata('message_login', $this->flasher('success', 'User has been registered!'));
+                } else {
+                    $this->session->set_flashdata('message_login', $this->flasher('danger', 'Failed to create User'));
+                }
+                echo "<script>location.href='" . base_url('index.php/login') . "';alert('Daftar Berhasil');</script>";
             }
-            redirect('index.php/auth/login');
-        }
         } else {
-            $this->load->view('auth/register');
+            echo "<script>location.href='" . base_url('index.php/login/formregister') . "';alert('Anda gagal Registrasi');</script>";
         }
     }
+    public function formregister()
+    {
+        $this->load->view('auth/register');
+    }
+
 
     public function logout()
     {
-        $this->session->set_flashdata('message_login', $this->flasher('success', 'User has been logged out'));
-        $this->session->unset_userdata('id');
-        redirect('index.php/auth/login');
+        $id = $this->session->userdata('id_role');
+        if ($id == '1') {
+            $this->session->set_flashdata('message_login', $this->flasher('success', 'User has been logged out'));
+            $this->session->unset_userdata('id');
+            $this->session->unset_userdata('id_role');
+            $this->session->unset_userdata('nama');
+            echo "<script>alert('Anda Telah Keluar');</script>";
+            redirect('index.php/auth/');
+        } else {
+            $this->session->set_flashdata('message_login', $this->flasher('success', 'User has been logged out'));
+            $this->session->unset_userdata('id');
+            $this->session->unset_userdata('id_role');
+            $this->session->unset_userdata('nama');
+            echo "<script>alert('Anda Telah Keluar');</script>";
+            redirect('index.php/auth/login');
+        }
     }
 
     public function flasher($class, $message)

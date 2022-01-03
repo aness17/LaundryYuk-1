@@ -7,7 +7,7 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h1 class="h3 mb-2 text-gray-800">Data Customer</h1>
-            <a href="<?= base_url('index.php/agen/addcs') ?>" type="button" class="btn btn-success text-white btn-sm">
+            <a href="<?= base_url('index.php/outlet/add') ?>" type="button" class="btn btn-success text-white btn-sm">
                 Tambah
             </a>
         </div>
@@ -31,8 +31,8 @@
 
                         <?php $no = 1;
 
-                        $user = $this->db->query("SELECT * FROM user where fk_role = '1' and catatan = 'input by agen ".$this->session->userdata('id')."'" );
-                        foreach ($user->result_array() as $users) : ?>
+                        // $user = $this->db->query("SELECT * FROM user where fk_role = '1' and catatan = 'input by outlet ".$this->session->userdata('id')."'" );
+                        foreach ($user as $users) : ?>
                             <tr>
                                 <td><?= $no; ?></td>
                                 <td><?= $users['nama_cs'] ?></td>
@@ -42,9 +42,9 @@
                                 <td><?= $users['alamat_cs'] ?></td>
                                 <td><?= $users['catatan'] ?></td>
                                 <td class="text-center">
-                                    <a href="<?= base_url('index.php/admin/user/edit/' . $users['id_cs']) ?>" type="button" class="fas fa-edit" style="color:limegreen">
+                                    <a href="<?= base_url('index.php/outlet/edit/' . $users['id_cs']) ?>" type="button" class="fas fa-edit" style="color:limegreen">
                                     </a>
-                                    <a href="<?= base_url('index.php/admin/user/delete/' . $users['id_cs']) ?>" type="button" class="fas fa-trash" style="color:red" onclick="return confirm('Are you sure to delete this row ?')">
+                                    <a href="<?= base_url('index.php/outlet/delete/' . $users['id_cs']) ?>" type="button" class="fas fa-trash" style="color:red" onclick="return confirm('Are you sure to delete this row ?')">
                                     </a>
                                 </td>
                             </tr>

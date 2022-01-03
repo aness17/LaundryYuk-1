@@ -10,37 +10,36 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table dataTable" cellspacing="0">
                     <thead>
-                        <tr>
+                        <tr style="text-align: center;">
                             <th>No</th>
                             <th>Nama</th>
                             <th>Email</th>
-                            <th>Password</th>
+                            <!-- <th>Password</th> -->
                             <th>No. Hp</th>
                             <th>Alamat</th>
                             <th>Catatan</th>
                             <th>Aksi</th>
-
                         </tr>
                     </thead>
                     <tbody class="list">
 
                         <?php $no = 1;
-                        $user = $this->db->query("SELECT * FROM user");
-                        foreach ($user->result_array() as $users) : ?>
-                            <tr>
+                        // $user = $this->db->query("SELECT * FROM user where fk_role = '1'");
+                        foreach ($user as $users) : ?>
+                            <tr style="text-align: center;">
                                 <td><?= $no; ?></td>
                                 <td><?= $users['nama_cs'] ?></td>
                                 <td><?= $users['email_cs'] ?></td>
-                                <td><?= $users['passwd_cs'] ?></td>
+                                <!-- <td><?= $users['passwd_cs'] ?></td> -->
                                 <td><?= $users['nohp_cs'] ?></td>
                                 <td><?= $users['alamat_cs'] ?></td>
                                 <td><?= $users['catatan'] ?></td>
                                 <td class="text-center">
-                                    <a href="<?= base_url('index.php/admin/user/edit/' . $users['id_cs']) ?>" type="button" class="fas fa-edit" style="color:limegreen">
+                                    <a href="<?= base_url('index.php/outlet/edit/' . $users['id_cs']) ?>" type="button" class="fas fa-edit" style="color:limegreen">
                                     </a>
-                                    <a href="<?= base_url('index.php/admin/user/delete/' . $users['id_cs']) ?>" type="button" class="fas fa-trash" style="color:red" onclick="return confirm('Are you sure to delete this row ?')">
+                                    <a href="<?= base_url('index.php/outlet/delete/' . $users['id_cs']) ?>" type="button" class="fas fa-trash" style="color:red" onclick="return confirm('Are you sure to delete this row ?')">
                                     </a>
                                 </td>
                             </tr>

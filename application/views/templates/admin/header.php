@@ -18,4 +18,8 @@
 	<!-- Custom styles for this template-->
 	<link href="<?= base_url('assets/admin/css/sb-admin-2.min.css') ?>" rel="stylesheet">
 
+	<!-- PDF -->
+	<link rel="stylesheet" href="<?= base_url('assets/jquery-ui/jquery-ui.min.css'); ?>" /> <!-- Load file css jquery-ui -->
+    <script src="<?= base_url('assets/jquery.min.js'); ?>"></script> <!-- Load file jquery -->
+
 </head>

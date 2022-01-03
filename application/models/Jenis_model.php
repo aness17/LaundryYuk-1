@@ -14,6 +14,12 @@ class Jenis_model extends CI_Model
     {
         return $this->db->get($this->table)->result_array();
     }
+    public function selectAll()
+    {
+        $this->db->select('*');
+        $this->db->from('jenisld');
+        return $this->db->get()->result_array();
+    }
     public function delete($id)
     {
         $this->db->where($this->primary, $id);
@@ -24,7 +30,7 @@ class Jenis_model extends CI_Model
         $this->db->where($this->primary, $data[$this->primary]);
         return $this->db->update($this->table, $data);
     }
-    
+
     public function getUserById($id)
     {
         $this->db->select('*');

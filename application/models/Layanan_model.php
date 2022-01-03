@@ -15,6 +15,12 @@ class Layanan_model extends CI_Model
     {
         return $this->db->get($this->table)->result_array();
     }
+    public function selectAll()
+    {
+        $this->db->select('*');
+        $this->db->from('layananld');
+        return $this->db->get()->result_array();
+    }
     public function delete($id)
     {
         $this->db->where($this->primary, $id);
